@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Bias Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Confirmation Bias Visualization Tool</h1>
+        </header>
+        
+        <div class="main-content">
+            <div class="controls">
+                <div class="input-group">
+                    <label for="target-radius">Target Radius:</label>
+                    <input type="number" id="target-radius" min="0.1" max="1" step="0.1" value="0.3">
+                    <span class="help-text">How obscure the logical premise is (0.1-1)</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="sample-size">Sample Size:</label>
+                    <input type="number" id="sample-size" min="10" max="1000" step="10" value="100">
+                    <span class="help-text">Number of attempts to confirm the premise</span>
+                </div>
+                
+                <div class="button-group">
+                    <button id="test-button" class="btn primary">Test!</button>
+                    <button id="clear-button" class="btn secondary">Clear!</button>
+                </div>
+            </div>
+            
+            <div class="visualization">
+                <canvas id="canvas" width="600" height="600"></canvas>
+            </div>
+        </div>
+        
+        <div class="results">
+            <div class="result-item">
+                <h3>Unbiased Confirmation Rate:</h3>
+                <p id="unbiased-rate">0/0 (0%)</p>
+                <span class="help-text">Ratio of confirmations to total sample size</span>
+            </div>
+            
+            <div class="result-item">
+                <h3>Biased Confirmation Rate:</h3>
+                <p id="biased-rate">0/0 (0%)</p>
+                <span class="help-text">Ratio of confirmations to confirmations (always 100%)</span>
+            </div>
+        </div>
+        
+        <div class="educational-section">
+            <h2>Understanding Confirmation Bias</h2>
+            
+            <div class="definition">
+                <h3>What is Confirmation Bias?</h3>
+                <p>
+                    <strong>Confirmation bias</strong> (Latin: <em>confirmationis praejudicium</em>) is the tendency to search for, interpret, favor, and recall information in a way that confirms or supports one's prior beliefs or values.
+                </p>
+                <p>
+                    People display this bias when they select information that supports their views, ignoring contrary information, or when they interpret ambiguous evidence as supporting their existing attitudes.
+                </p>
+            </div>
+            
+            <div class="importance">
+                <h3>Why It's Important to Avoid This Fallacy</h3>
+                <p>
+                    Confirmation bias is one of the most pervasive cognitive biases affecting human decision-making. It can lead to:
+                </p>
+                <ul>
+                    <li>Poor decision-making based on skewed information</li>
+                    <li>Reinforcement of existing beliefs despite contrary evidence</li>
+                    <li>Polarization of opinions and difficulty in finding common ground</li>
+                    <li>Resistance to changing one's mind even when presented with compelling evidence</li>
+                </ul>
+                <p>
+                    This visualization demonstrates how easy it is to "confirm" a belief by only focusing on the evidence that supports it. The biased confirmation rate is always 100% because it only considers the "hits" and ignores the "misses." In contrast, the unbiased rate shows the actual proportion of evidence supporting the premise.
+                </p>
+                <p>
+                    By being aware of confirmation bias, we can make more balanced decisions by actively seeking out disconfirming evidence and considering alternative viewpoints.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
